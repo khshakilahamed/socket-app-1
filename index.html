@@ -14,6 +14,11 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io();
+
+        // getting data 
+        socket.on('message', (msg) => {
+            document.write(msg);
+        })
     </script>
 </body>
 
