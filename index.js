@@ -13,9 +13,19 @@ io.on('connection', (socket) => {
     console.log('user connected');
 
     // sending data to client
-    setTimeout(() => {
-        socket.send("Sent from Server to Client");
-    }, 10000);
+    setInterval(() => {
+        let d = new Date();
+        let t = d.getTime();
+
+        socket.send(t);
+    }, 2000)
+
+
+
+
+    // setTimeout(() => {
+    //     socket.send("Sent from Server to Client");
+    // }, 10000);
 
     // socket.on('disconnect', () => {
     //     console.log("User Disconnect");

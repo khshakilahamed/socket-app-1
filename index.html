@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Hello</h1>
+    <h1 id="time"></h1>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -17,7 +17,7 @@
 
         // getting data 
         socket.on('message', (msg) => {
-            document.write(msg);
+            document.getElementById('time').innerHTML = msg;
         })
     </script>
 </body>
