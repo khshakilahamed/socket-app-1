@@ -12,14 +12,22 @@ const io = new Server(expressServer);
 io.on('connection', (socket) => {
     console.log('user connected');
 
-    // receive data
-    socket.on('message', (msg) => {
+    // ---------receive data----------
+
+    // custom event
+    socket.on('myEvent', (msg) => {
         console.log(msg);
     })
 
 
+    // pre-defined event
+    // socket.on('message', (msg) => {
+    //     console.log(msg);
+    // })
 
-    // sending data to client
+
+
+    // -----------sending data to client-------------
     // custom event
     // setInterval(() => {
     //     let d = new Date();

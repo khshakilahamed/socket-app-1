@@ -20,14 +20,17 @@
         // send data from client to server
         const send = () => {
             const name = document.getElementById('name').value;
+            // custom event
+            socket.emit('myEvent', name);
 
-            socket.send(name); 
+            // pre-defined event
+            // socket.send(name); 
         }
 
 
 
 
-        // getting data from server
+        // ----------getting data from server----------
         // socket.on('myTime', (msg) => {
         //     document.getElementById('time').innerHTML = msg;
         // })
