@@ -9,16 +9,31 @@
 </head>
 
 <body>
-    <h1 id="time"></h1>
+    <input type="text" id="name">
+    <button onclick="send()" id="send">Send</button>
+
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io();
 
-        // getting data 
-        socket.on('myTime', (msg) => {
-            document.getElementById('time').innerHTML = msg;
-        })
+        // send data from client to server
+        const send = () => {
+            const name = document.getElementById('name').value;
+
+            socket.send(name); 
+        }
+
+
+
+
+        // getting data from server
+        // socket.on('myTime', (msg) => {
+        //     document.getElementById('time').innerHTML = msg;
+        // })
+
+
+
     </script>
 </body>
 
