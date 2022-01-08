@@ -13,13 +13,23 @@ io.on('connection', (socket) => {
     console.log('user connected');
 
     // sending data to client
+    // custom event
     setInterval(() => {
         let d = new Date();
         let t = d.getTime();
 
-        socket.send(t);
+        socket.emit('myTime', t);
     }, 2000)
 
+
+
+
+    // setInterval(() => {
+    //     let d = new Date();
+    //     let t = d.getTime();
+
+    //     socket.send(t);
+    // }, 2000)
 
 
 
@@ -27,9 +37,9 @@ io.on('connection', (socket) => {
     //     socket.send("Sent from Server to Client");
     // }, 10000);
 
-    // socket.on('disconnect', () => {
-    //     console.log("User Disconnect");
-    // })
+    socket.on('disconnect', () => {
+        console.log("User Disconnect");
+    })
 })
 
 

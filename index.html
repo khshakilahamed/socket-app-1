@@ -16,7 +16,7 @@
         let socket = io();
 
         // getting data 
-        socket.on('message', (msg) => {
+        socket.on('myTime', (msg) => {
             document.getElementById('time').innerHTML = msg;
         })
     </script>
