@@ -8,8 +8,17 @@ const expressServer = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(expressServer);
 
-
+// broadcasting
 io.on('connection', (socket) => {
+    io.sockets.emit('MyBroadcast', "Hello, Everyone!");
+})
+
+
+
+
+
+
+/* io.on('connection', (socket) => {
     console.log('user connected');
 
     // ---------receive data----------
@@ -55,7 +64,7 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log("User Disconnect");
     })
-})
+}) */
 
 
 app.get('/', (req, res) => {
