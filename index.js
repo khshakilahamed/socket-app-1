@@ -8,10 +8,23 @@ const expressServer = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(expressServer);
 
-// broadcasting
-io.on('connection', (socket) => {
-    io.sockets.emit('MyBroadcast', "Hello, Everyone!");
+
+// ----------- name space ------------
+const buyNameSpace = io.of('/buy');
+buyNameSpace.on('connection', (socket) => {
+    buyNameSpace.emit('MyBroadcast', "Hello, buy!");
 })
+
+const sellNameSpace = io.of('/sell');
+sellNameSpace.on('connection', (socket) => {
+    sellNameSpace.emit('MyBroadcast', "Hello, sell!");
+})
+
+
+// ------------ broadcasting -----------
+/* io.on('connection', (socket) => {
+    io.sockets.emit('MyBroadcast', "Hello, Everyone!");
+}) */
 
 
 
